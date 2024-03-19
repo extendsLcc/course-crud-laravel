@@ -3,8 +3,6 @@ import hybridly from 'hybridly/vite'
 
 export default defineConfig({
   plugins: [
-    hybridly({
-      vueComponents: false,
-    }),
+    hybridly(),
   ],
 })
