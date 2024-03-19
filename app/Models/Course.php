@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -8,8 +10,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Course extends Model {
-    use SoftDeletes, HasFactory;
+class Course extends Model
+{
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -17,11 +20,13 @@ class Course extends Model {
         'cover_url',
     ];
 
-    public function modules(): HasMany {
+    public function modules(): HasMany
+    {
         return $this->hasMany(Module::class);
     }
 
-    public function leassons(): HasManyThrough {
+    public function leassons(): HasManyThrough
+    {
         return $this->hasManyThrough(Lesson::class, Module::class);
     }
 }
