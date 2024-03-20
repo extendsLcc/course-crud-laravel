@@ -19,14 +19,6 @@ const login = useForm({
     email: '',
     password: '',
   },
-  hooks: {
-    fail(context) {
-      console.error(context)
-    },
-    after(context) {
-      console.warn(context)
-    },
-  },
 })
 </script>
 
