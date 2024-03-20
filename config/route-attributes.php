@@ -15,9 +15,22 @@ return [
      * Optionally, you can specify group configuration by using key/values
      */
     'directories' => [
+        /**
+         * This will enforce that all controllers are auth guarded by default
+         */
         app_path('Http/Controllers') => [
-            'middleware' => ['web'],
+            'middleware' => ['auth', 'web'],
+            'except' => ['AuthController.php'],
         ],
+        /**
+         * Except for the AuthController, which uses the guest middleware
+         * since I cannot override auth:web middleware from above config
+         */
+        app_path('Http/Controllers/Auth') => [
+            'middleware' => ['web'],
+            'patterns' => ['AuthController.php'],
+        ],
+
         /*
         app_path('Http/Controllers/Api') => [
            'prefix' => 'api',
