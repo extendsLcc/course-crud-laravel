@@ -6,6 +6,7 @@ import Button from '@/components/ui/button/Button.vue'
 
 const props = defineProps<ButtonProps & {
   isSaving: boolean
+  savingText?: string
 }>()
 
 const forwardedProps = useForwardProps(props)
@@ -15,10 +16,12 @@ const forwardedProps = useForwardProps(props)
   <Button v-bind="forwardedProps" :disabled="props.isSaving" as-child>
     <button v-if="props.isSaving" class="flex">
       <Loader2 class="mr-2 size-4 animate-spin" />
-      Saving...
+      {{ props.savingText || 'Saving...' }}
     </button>
     <button v-else>
-      Save
+      <slot>
+        Save
+      </slot>
     </button>
   </Button>
 </template>
