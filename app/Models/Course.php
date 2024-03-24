@@ -36,6 +36,15 @@ class Course extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Order the courses by the date they were updated.
+     */
+    public function scopeUpdatedRecently($builder): void
+    {
+        $builder->orderBy('updated_at', 'desc')
+            ->orderBy('created_at', 'desc');
+    }
+
     protected static function booted(): void
     {
         static::deleted(function (Course $course) {
