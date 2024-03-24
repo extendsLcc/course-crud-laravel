@@ -19,7 +19,8 @@ class CourseFactory extends Factory
             'updated_at' => CarbonImmutable::now(),
             'name' => $this->faker->name(),
             'description' => $this->faker->text(),
-            'cover_url' => $this->faker->url(),
+            'cover_url' => $this->faker->imageUrl(),
+            'user_id' => 1,
         ];
     }
 }
