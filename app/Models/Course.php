@@ -36,4 +36,11 @@ class Course extends Model
         return $this->belongsTo(User::class);
     }
 
+    protected static function booted(): void
+    {
+        static::deleted(function (Course $course) {
+            $course->lessons()->delete();
+            $course->modules()->delete();
+        });
+    }
 }

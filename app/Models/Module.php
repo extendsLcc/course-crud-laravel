@@ -28,4 +28,11 @@ class Module extends Model
     {
         return $this->hasMany(Lesson::class);
     }
+
+    protected static function booted(): void
+    {
+        static::deleted(function (Module $module) {
+            $module->lessons()->delete();
+        });
+    }
 }
