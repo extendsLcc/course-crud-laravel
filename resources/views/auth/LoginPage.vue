@@ -6,13 +6,17 @@ import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { InputError } from '@/components/ui/input-error'
-import DarkThemeButton from '@/layouts/panel-layout/DarkThemeButton.vue'
+import { DarkThemeSwitch } from '@/layouts/panel-shell'
 
 useHead({
-  title: 'Login - Course Crud Laravel',
+  title: 'Login',
+  meta: [{
+    name: 'description',
+    content: 'Login to your account',
+  }],
 })
 
-const login = useForm({
+const login = useForm<App.Data.LoginInputData>({
   method: 'POST',
   url: route('auth.login'),
   fields: {
@@ -24,11 +28,11 @@ const login = useForm({
 
 <template>
   <div class="container relative grid h-full flex-col items-center justify-center bg-background lg:max-w-none lg:grid-cols-2 lg:px-0">
-    <DarkThemeButton
+    <DarkThemeSwitch
       class="absolute right-4 top-4 md:right-8 md:top-8"
     >
       Login
-    </DarkThemeButton>
+    </DarkThemeSwitch>
 
     <div class="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
       <div class="absolute inset-0 bg-zinc-900" />
