@@ -24,7 +24,7 @@ return new class extends Migration
              * who created it. But I'm adding it for now. This will not have
              * any effect on the application.
              */
-            $table->foreignIdFor(User::class, 'created_by')
+            $table->foreignIdFor(User::class, 'user_id')
                 ->constrained();
         });
     }
