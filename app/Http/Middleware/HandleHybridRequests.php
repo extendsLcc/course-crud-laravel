@@ -7,7 +7,11 @@ namespace App\Http\Middleware;
 use App\Data\SecurityData;
 use App\Data\SharedData;
 use App\Data\UserData;
+use Closure;
 use Hybridly\Http\Middleware;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
 class HandleHybridRequests extends Middleware
 {
@@ -20,6 +24,7 @@ class HandleHybridRequests extends Middleware
             'security' => SecurityData::from([
                 'user' => UserData::optional(auth()->user()),
             ]),
+            'currentRouteName' => request()->route()->getName(),
         ]);
     }
 }

@@ -10,6 +10,8 @@ class SharedData extends Data
 {
     public function __construct(
         public readonly SecurityData $security,
+        public readonly string $currentRouteName,
+        public readonly ?FlashBagData $flash,
     ) {
     }
 }
