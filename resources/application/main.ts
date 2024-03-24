@@ -6,7 +6,7 @@ initializeHybridly({
   enhanceVue: (vue) => {
     const head = createHead()
     head.push({
-      titleTemplate: title => title ? `${title} — Hybridly` : 'Hybridly',
+      titleTemplate: title => title ? `${title} - Course CRUD Laravel` : 'Course CRUD Laravel',
     })
     vue.use(head)
   },
