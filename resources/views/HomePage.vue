@@ -81,9 +81,13 @@ const props = defineProps<App.Data.HomePageOutputData>()
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div class="space-y-2 [&_>.flex:last-child]:border-0 [&_>.flex]:border-b">
-            <div v-for="course in props.recentlyUpdatedCourses" :key="course.id" class="flex flex-wrap items-center border-border pb-2 hover:bg-muted/50">
-              <router-link :href="route('courses.edit', { course: course.id })">
+          <div class="[&_>.flex:last-child]:border-0 [&_>.flex]:border-b">
+            <div
+              v-for="course in props.recentlyUpdatedCourses"
+              :key="course.id"
+              class="flex flex-wrap items-center justify-center gap-x-2 border-border p-2 hover:bg-muted/50 sm:flex-nowrap"
+            >
+              <router-link :href="route('courses.edit', { course: course.id })" class="size-24">
                 <Avatar class="size-24" shape="square">
                   <AvatarImage :src="course.cover_url" alt="course cover" />
                   <AvatarFallback>
@@ -91,22 +95,22 @@ const props = defineProps<App.Data.HomePageOutputData>()
                   </AvatarFallback>
                 </Avatar>
               </router-link>
-              <div class="ml-4 space-y-1">
+              <div class="ml-4 grow space-y-1">
                 <router-link :href="route('courses.edit', { course: course.id })">
                   <p class="text-sm font-medium leading-none">
                     {{ course.name }}
                   </p>
                 </router-link>
-                <p class="text-sm text-muted-foreground">
+                <p class="line-clamp-2 text-sm text-muted-foreground">
                   {{ truncateString(course.description, 100) }}
                 </p>
               </div>
-              <div class="ml-auto font-medium">
+              <div class="shrink font-medium">
                 <div class="flex flex-col">
-                  <span class="text-sm text-muted-foreground">
+                  <span class="text-nowrap text-sm text-muted-foreground">
                     {{ course.modules_count }} module(s)
                   </span>
-                  <span class="text-sm text-muted-foreground">
+                  <span class="text-nowrap text-sm text-muted-foreground">
                     {{ course.lessons_count }} lesson(s)
                   </span>
                 </div>
