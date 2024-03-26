@@ -86,7 +86,7 @@ The application will be available at [http://localhost](http://localhost) by def
 The project was developed using the following technologies:
 
 - **[Laravel](https://github.com/laravel/laravel)**: Opted for not changing much of the default structure because the size of the project and to make use of laravel idea code generation.
-- **[Hybridly (Inertia Alternative)](https://github.com/usehybridly/hybridly)**: First time using it. It's basically inertia.js on steroids, it comes with a lot of preconfigured stuff that makes the development process much faster, instead of wasting time configuring inertia.js, I can focus on the project itself. 
+- **[Hybridly (Inertia Alternative)](https://github.com/hybridly/hybridly)**: First time using it. It's basically inertia.js on steroids, it comes with a lot of preconfigured stuff that makes the development process much faster, instead of wasting time configuring inertia.js, I can focus on the project itself. 
     <br>Its focus on Laravel and Vue.js provides features that Inertia.js doesn't have. Also even though it's not as popular as Inertia.js, its maintainers are very active (surprisingly more than Inertia.js) and is really reliable.
 - **[Spatie/laravel-data](https://github.com/spatie/laravel-data)**: Almost mandatory for Hybridly, makes end-to-end type-safety possible.
 - **[Spatie/laravel-route-attributes](https://github.com/spatie/laravel-route-attributes)**: Makes the routes more readable and easier to maintain.
