@@ -16,6 +16,7 @@ use Hybridly\Tables\Table;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Contracts\Pagination\CursorPaginator;
 use Illuminate\Contracts\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
 
 final class CoursesTable extends Table
 {
@@ -66,7 +67,7 @@ final class CoursesTable extends Table
     {
         return [
             InlineAction::make('delete')->action(function (Course $course) {
-                $course->delete();
+                DB::transaction(fn () => $course->delete());
                 session()->flash('success', "Course #{$course->id} - {$course->name} deleted successfully");
 
                 return back()->with('success', "Course #{$course->id} - {$course->name} deleted successfully");
