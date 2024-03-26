@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('cover_url');
+            $table->string('cover_url', 2048);
             $table->softDeletes();
             $table->timestamps();
 
