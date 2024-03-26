@@ -4,6 +4,7 @@
 			<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			@vite
+            @include('static.easter-egg')
 	</head>
 	<body class="h-full bg-gray-50 antialiased">
 			@hybridly(class: 'h-full')
