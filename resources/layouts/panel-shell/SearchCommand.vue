@@ -38,10 +38,11 @@ function closeCommandDialog() {
       Search for a command or navigate using the keyboard.
     </DialogDescription>
     <template #trigger>
-      <DialogTrigger>
+      <DialogTrigger class="w-full flex-auto sm:flex-1">
         <Button
           variant="outline"
           class="relative h-8 w-full justify-start rounded-[0.5rem] bg-background pl-8 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-48 lg:w-64"
+          as="span"
         >
           <SearchIcon class="absolute left-2.5 size-4 text-gray-500 dark:text-gray-400" />
           <span class="inline-flex">Search...</span>
