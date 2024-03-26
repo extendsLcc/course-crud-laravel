@@ -12,7 +12,6 @@ use Spatie\RouteAttributes\Attributes\Post;
 
 class AuthController extends Controller
 {
-
     #[Get('login', name: 'auth.show', middleware: 'guest')]
     public function show()
     {

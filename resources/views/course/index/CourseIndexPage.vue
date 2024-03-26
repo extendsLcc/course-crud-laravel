@@ -164,7 +164,7 @@ function clearTableFilters() {
         <TooltipProvider :delay-duration="250">
           <Table>
             <TableHeader>
-              <TableRow>
+              <TableRow v-auto-animate>
                 <template v-for="column in coursesTableData.columns" :key="column.name">
                   <TableHead v-if="!hiddenColumns.has(column.name)">
                     <!-- DataTable SortableColumns -->
@@ -218,11 +218,12 @@ function clearTableFilters() {
                 </TableHead>
               </TableRow>
             </TableHeader>
-            <TableBody>
+            <TableBody v-auto-animate>
               <template v-if="coursesTableData.records.length">
                 <TableRow
                   v-for="courseRow in coursesTableData.records"
                   :key="courseRow.key"
+                  v-auto-animate
                 >
                   <TableCell v-if="!hiddenColumns.has('id')" class="text-left">
                     {{ courseRow.record.id }}
@@ -240,7 +241,7 @@ function clearTableFilters() {
                   <TableCell v-if="!hiddenColumns.has('name')">
                     {{ courseRow.record.name }}
                   </TableCell>
-                  <TableCell v-if="!hiddenColumns.has('description')">
+                  <TableCell v-if="!hiddenColumns.has('description')" class="line-clamp-2">
                     {{ courseRow.record.description }}
                   </TableCell>
                   <TableCell v-if="!hiddenColumns.has('modules_count')" class="text-center">
@@ -261,7 +262,7 @@ function clearTableFilters() {
                             :as="RouterLink"
                             :href="route('courses.edit', { course: courseRow.record.id })"
                           >
-                            <PenIcon class="size-4" />
+                            <PenIcon class="size-5" />
                             <span class="sr-only fixed">Edit Course {{ courseRow.record.name }}</span>
                           </Button>
                         </TooltipTrigger>
@@ -272,22 +273,22 @@ function clearTableFilters() {
                       <!-- /Edit Button -->
                       <!-- Delete Button -->
                       <AlertDialog>
-                        <AlertDialogTrigger>
-                          <Tooltip>
+                        <Tooltip>
+                          <AlertDialogTrigger as-child>
                             <TooltipTrigger as-child>
                               <Button
                                 variant="ghost"
                                 class="flex size-8 p-0 data-[state=open]:bg-muted"
                               >
-                                <TrashIcon class="size-4" />
+                                <TrashIcon class="size-5" />
                                 <span class="sr-only fixed">Delete Course</span>
                               </Button>
                             </TooltipTrigger>
                             <TooltipContent>
                               Delete Course
                             </TooltipContent>
-                          </Tooltip>
-                        </AlertDialogTrigger>
+                          </AlertDialogTrigger>
+                        </Tooltip>
                         <AlertDialogContent>
                           <AlertDialogHeader>
                             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
