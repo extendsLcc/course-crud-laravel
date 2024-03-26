@@ -13,7 +13,8 @@
     "laravel/framework": "^11.0",
     "laravel/tinker": "^2.9",
     "spatie/laravel-data": "^4.4",
-    "spatie/laravel-route-attributes": "^1.21"
+    "spatie/laravel-route-attributes": "^1.21",
+    "staudenmeir/belongs-to-through": "^2.5"
   },
   "require-dev": {
     "fakerphp/faker": "^1.23",

@@ -233,11 +233,28 @@ class LessonFactory extends Factory
             'title' => 'Game music',
             'url' => 'https://www.youtube.com/watch?v=5qajT8lS2ok',
         ],
+        [
+            'title' => 'Ride of the Rohirrim',
+            'url' => 'https://vimeo.com/314271493',
+        ],
+        [
+            'title' => 'LOTR The Two Towers - Forth Éorlingas',
+            'url' => 'https://player.vimeo.com/video/787795499?h=5d4de71bc8',
+        ],
+        [
+            'title' => 'Moon Halo - Honkai Impact 3rd Valkyrie Theme ',
+            'url' => 'https://youtu.be/xREK6gZxYLQ?si=ASst-ALwHlYiWfEq',
+        ],
+        [
+            'title' => 'Honkai Impact 3rd Animated Short: Because of You (Japanese-Dubbed) ',
+            'url' => 'https://www.youtube.com/embed/_BUh64YHE30?si=epkUosgTKUx3eTdD',
+        ],
     ];
 
     public function definition(): array
     {
         $randomVideo = $this->faker->randomElement(self::$fakeVideoURLs);
+
         return [
             'created_at' => CarbonImmutable::now(),
             'updated_at' => CarbonImmutable::now(),

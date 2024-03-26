@@ -31,7 +31,14 @@ class Module extends Model
 
     protected static function booted(): void
     {
+        static::created(function (Module $module) {
+            $module->course()->touch();
+        });
+        static::updated(function (Module $module) {
+            $module->course()->touch();
+        });
         static::deleted(function (Module $module) {
+            $module->course()->touch();
             $module->lessons()->delete();
         });
     }
