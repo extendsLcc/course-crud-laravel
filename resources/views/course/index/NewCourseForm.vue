@@ -45,7 +45,7 @@ function resetForm() {
   >
     <DialogTrigger as-child>
       <Button size="sm" class="gap-1">
-        New course
+        New Course
         <PlusIcon class="size-4" />
       </Button>
     </DialogTrigger>
@@ -96,34 +96,36 @@ function resetForm() {
             </InputError>
           </div>
         </div>
-
-        <div class="flex flex-col space-y-2">
+        <div class="flex flex-wrap items-center justify-center gap-4">
           <!-- TODO: change this to file upload -->
-          <Label html-for="cover_url">Cover Image Url</Label>
-          <div class="space-y-1">
-            <Input
-              id="cover_url"
-              v-model="courseForm.fields.cover_url"
-              type="text"
-              required
-              :aria-invalid="courseForm.errors.cover_url"
-              aria-errormessage="cover_url-error"
-              placeholder="Enter cover image url for the course"
-            />
-            <InputError
-              v-if="courseForm.errors.cover_url"
-              id="cover_url-error"
-            >
-              {{ courseForm.errors.cover_url }}
-            </InputError>
-          </div>
-
-          <Avatar class="!mt-4 size-32 self-center shadow-lg" shape="square">
+          <Avatar class="size-32 self-center" shape="square">
             <AvatarImage :src="courseForm.fields.cover_url" alt="cover image preview" />
             <AvatarFallback>
               <ImageIcon class="size-14 text-foreground/80" />
             </AvatarFallback>
           </Avatar>
+          <div class="flex flex-auto flex-col space-y-2">
+            <Label html-for="cover_url">Cover Image Url</Label>
+            <div class="space-y-1">
+              <Input
+                id="cover_url"
+                v-model="courseForm.fields.cover_url"
+                :default-value="courseForm.fields.cover_url"
+                type="text"
+                required
+                :aria-invalid="courseForm.errors.cover_url"
+                aria-errormessage="cover_url-error"
+                placeholder="Enter cover image url for the course"
+                class="min-w-32"
+              />
+              <InputError
+                v-if="courseForm.errors.cover_url"
+                id="cover_url-error"
+              >
+                {{ courseForm.errors.cover_url }}
+              </InputError>
+            </div>
+          </div>
         </div>
         <Separator />
         <DialogFooter class="gap-y-2">
