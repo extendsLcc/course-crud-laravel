@@ -19,7 +19,7 @@
     }
   },
   "remoteUser": "sail",
-  "postCreateCommand": "chown -R 1000:1000 /var/www/html 2>/dev/null || true && bash ./start-project.sh"
+  "postCreateCommand": "chown -R 1000:1000 /var/www/html 2>/dev/null || true && sh ./start-project.sh"
   // "forwardPorts": [],
   // "runServices": [],
   // "shutdownAction": "none",

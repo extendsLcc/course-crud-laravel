@@ -26,7 +26,7 @@ To install the project, follow these steps:
 
     You can execute all commands bellow be executing start-project.sh script
     ```bash
-    bash start-project.sh
+    sh start-project.sh
     ```
     or if you prefer to execute each step manually follow the steps bellow.
 
