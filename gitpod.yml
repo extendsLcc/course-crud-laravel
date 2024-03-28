@@ -1,0 +1,11 @@
+# https://www.gitpod.io/docs/config-gitpod-file
+image: gitpod/workspace-full
+
+ports:
+  - port: 8080
+    onOpen: open-preview
+  - port: 5173
+    onOpen: ignore
+
+tasks:
+  - init: sh start-project.sh
