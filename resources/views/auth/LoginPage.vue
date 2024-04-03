@@ -20,8 +20,8 @@ const login = useForm<App.Data.LoginInputData>({
   method: 'POST',
   url: route('auth.login'),
   fields: {
-    email: '',
-    password: '',
+    email: 'test@example.com',
+    password: 'password',
   },
 })
 </script>
