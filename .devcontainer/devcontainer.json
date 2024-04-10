@@ -6,7 +6,8 @@
 	],
 	"service": "laravel.test",
 	"workspaceFolder": "/var/www/html",
-	"initializeCommand": "cp .env.example .devcontainer/.env ",
+	"initializeCommand": "cp .env.example .env",
+	"prompted_files": [".env.local"],
 	"customizations": {
 		"vscode": {
 			"extensions": [
