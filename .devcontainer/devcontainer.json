@@ -19,6 +19,10 @@
 		}
 	},
 	"remoteUser": "sail",
+	"runArgs": [
+		"--env-file",
+		".env.example"
+	],
 	"postCreateCommand": "chown -R 1000:1000 /var/www/html 2>/dev/null && cp .env.example .env && composer install && php artisan key:generate && php artisan migrate --force --seed && bun install"
 	// "forwardPorts": [],
 	// "runServices": [],
